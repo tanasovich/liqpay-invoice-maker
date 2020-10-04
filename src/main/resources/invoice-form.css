@@ -1,0 +1,16 @@
+.v-box {
+	-fx-padding: 16;
+	-fx-spacing: 8;
+}
+
+.h-box {
+	-fx-spacing: 4;
+}
+
+.text-field {
+	-fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+.h-box-with-button {
+	-fx-alignment: center;
+}

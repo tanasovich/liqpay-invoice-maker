@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+
+<VBox fx:controller="com.stitch_house_market.liqpay_invoice_maker.FillInController"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<MenuBar>
+		<Menu fx:id="configuration" text="%configuration">
+			<CheckMenuItem fx:id="testMode" text="%test-mode" onAction="#showTestDialog" />
+		</Menu>
+		<Menu fx:id="language" text="%language">
+			<fx:define>
+				<ToggleGroup fx:id="toggleLangGroup" />
+			</fx:define>
+			<RadioMenuItem fx:id="uaLanguage" text="ua" toggleGroup="$toggleLangGroup" onAction="#toggleAppLanguage" />
+			<RadioMenuItem fx:id="ruLanguage" text="ru" toggleGroup="$toggleLangGroup" onAction="#toggleAppLanguage" />
+			<RadioMenuItem fx:id="enLanguage" text="en" toggleGroup="$toggleLangGroup" onAction="#toggleAppLanguage" />
+		</Menu>
+	</MenuBar>
+	<VBox styleClass="v-box">
+	<children>
+		<HBox styleClass="h-box">
+			<children>
+				<TextField fx:id="phoneNumber" promptText="%phone" />
+			</children>
+		</HBox>
+		<HBox styleClass="h-box">
+			<children>
+				<TextField fx:id="email" promptText="%email" />
+			</children>
+		</HBox>
+		<HBox styleClass="h-box">
+			<children>
+				<TextField fx:id="description" promptText="%description" />
+			</children>
+		</HBox>
+		<HBox styleClass="h-box">
+			<children>
+				<TextField fx:id="price" promptText="%price" />
+				<ComboBox fx:id="currency" />
+			</children>
+		</HBox>
+		<HBox styleClass="h-box-with-button">
+			<children>
+				<Button fx:id="composeInvoice" text="%compose-invoice" onAction="#sendMakeInvoiceRequest" />
+			</children>
+		</HBox>
+		<HBox styleClass="h-box">
+			<children>
+				<TextField fx:id="invoiceURL" promptText="%invoice-url" editable="false" />
+				<Button fx:id="copyInvoiceURL" text="%copy-invoice-url" onAction="#copyURLToClipboard" />
+			</children>
+		</HBox>
+	</children>
+	<stylesheets>
+		<URL value="@invoice-form.css" />
+	</stylesheets>
+	</VBox>
+</VBox>
+
